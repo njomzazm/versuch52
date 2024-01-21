@@ -1,0 +1,59 @@
+//Klasse 1
+public abstract class Gegenstand {
+
+    public abstract void ausgabe();
+     
+}
+
+//Klasse 2
+public abstract class Fahrzeug extends Gegenstand {
+    private String kupplung;
+
+    public Fahrzeug(String kupplung) {
+        this.kupplung = kupplung;
+    }
+
+    public void ausgabe() {
+        System.out.println("Fahrzeug");
+    }
+    public abstract String kupplungWechseln();
+
+    void setKupplung(String kupplung) {
+        this.kupplung = kupplung;
+    }
+
+    public String getKupplung() {
+        return kupplung;
+    }
+}
+
+//Klasse 3
+public class Auto2 extends Fahrzeug{
+
+
+    public Auto2(String kupplung) {
+        super(kupplung);
+    }
+
+    public void ausgabe() {
+        super.ausgabe();
+        System.out.println("Auto");
+    }
+
+    public String kupplungWechseln() {
+        setKupplung("neu");
+        return "Autokupplung wurde gewechselt";
+    }
+}
+
+//Klasse 4
+public class Versuch5Appli {
+    public static void main (String[] args) {
+        Auto2 bmw = new Auto2("alt");
+
+        bmw.ausgabe();
+        System.out.println(bmw.kupplungWechseln());
+        System.out.println(bmw.getKupplung());
+
+    }
+}
